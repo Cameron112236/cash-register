@@ -50,6 +50,7 @@ namespace cash_register
 
         private void change_Click(object sender, EventArgs e)
         {
+            //change calculation
             tendered = Convert.ToDouble(value: tenderedAmount.Text);
             changeMade = tendered - total;
 
