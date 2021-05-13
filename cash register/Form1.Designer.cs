@@ -29,12 +29,13 @@ namespace cash_register
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(register));
+            this.title = new System.Windows.Forms.Label();
             this.Menu = new System.Windows.Forms.Label();
             this.vanillaNumber = new System.Windows.Forms.TextBox();
             this.swirlNumber = new System.Windows.Forms.TextBox();
             this.chocolateNumber = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.amountLabel = new System.Windows.Forms.Label();
             this.Calculate = new System.Windows.Forms.Button();
             this.totals = new System.Windows.Forms.Label();
             this.Calculated = new System.Windows.Forms.Label();
@@ -43,18 +44,20 @@ namespace cash_register
             this.tenderedAmount = new System.Windows.Forms.TextBox();
             this.changeGiven = new System.Windows.Forms.Label();
             this.createReceipt = new System.Windows.Forms.Button();
+            this.recite = new System.Windows.Forms.Label();
+            this.reset = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // label1
+            // title
             // 
-            this.label1.BackColor = System.Drawing.Color.Brown;
-            this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(-3, -5);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(807, 39);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Fast Delivery";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.title.BackColor = System.Drawing.Color.Brown;
+            this.title.Font = new System.Drawing.Font("Microsoft YaHei UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.title.Location = new System.Drawing.Point(-3, -5);
+            this.title.Name = "title";
+            this.title.Size = new System.Drawing.Size(807, 39);
+            this.title.TabIndex = 0;
+            this.title.Text = "Fast Delivery";
+            this.title.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // Menu
             // 
@@ -91,15 +94,15 @@ namespace cash_register
             this.chocolateNumber.TabIndex = 4;
             this.chocolateNumber.Text = "0";
             // 
-            // label2
+            // amountLabel
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(107, 70);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 20);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "Amount: ";
+            this.amountLabel.AutoSize = true;
+            this.amountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.amountLabel.Location = new System.Drawing.Point(107, 70);
+            this.amountLabel.Name = "amountLabel";
+            this.amountLabel.Size = new System.Drawing.Size(73, 20);
+            this.amountLabel.TabIndex = 5;
+            this.amountLabel.Text = "Amount: ";
             // 
             // Calculate
             // 
@@ -182,13 +185,39 @@ namespace cash_register
             this.createReceipt.TabIndex = 13;
             this.createReceipt.Text = "Print Receipt";
             this.createReceipt.UseVisualStyleBackColor = false;
+            this.createReceipt.Click += new System.EventHandler(this.createReceipt_Click);
+            // 
+            // recite
+            // 
+            this.recite.BackColor = System.Drawing.Color.White;
+            this.recite.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.recite.Location = new System.Drawing.Point(560, 55);
+            this.recite.Name = "recite";
+            this.recite.Size = new System.Drawing.Size(218, 266);
+            this.recite.TabIndex = 18;
+            this.recite.Click += new System.EventHandler(this.recite14_Click);
+            // 
+            // reset
+            // 
+            this.reset.AccessibleRole = System.Windows.Forms.AccessibleRole.ScrollBar;
+            this.reset.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.reset.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.reset.Location = new System.Drawing.Point(75, 327);
+            this.reset.Name = "reset";
+            this.reset.Size = new System.Drawing.Size(419, 55);
+            this.reset.TabIndex = 19;
+            this.reset.Text = "New Order";
+            this.reset.UseVisualStyleBackColor = false;
+            this.reset.Click += new System.EventHandler(this.reset_Click);
             // 
             // register
             // 
             this.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(803, 490);
+            this.ClientSize = new System.Drawing.Size(803, 399);
+            this.Controls.Add(this.reset);
+            this.Controls.Add(this.recite);
             this.Controls.Add(this.createReceipt);
             this.Controls.Add(this.changeGiven);
             this.Controls.Add(this.tenderedAmount);
@@ -197,12 +226,13 @@ namespace cash_register
             this.Controls.Add(this.Calculated);
             this.Controls.Add(this.totals);
             this.Controls.Add(this.Calculate);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.amountLabel);
             this.Controls.Add(this.chocolateNumber);
             this.Controls.Add(this.swirlNumber);
             this.Controls.Add(this.vanillaNumber);
             this.Controls.Add(this.Menu);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.title);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "register";
             this.Text = "Cash Register";
             this.ResumeLayout(false);
@@ -212,12 +242,12 @@ namespace cash_register
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label title;
         private System.Windows.Forms.Label Menu;
         private System.Windows.Forms.TextBox vanillaNumber;
         private System.Windows.Forms.TextBox swirlNumber;
         private System.Windows.Forms.TextBox chocolateNumber;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label amountLabel;
         private System.Windows.Forms.Button Calculate;
         private System.Windows.Forms.Label totals;
         private System.Windows.Forms.Label Calculated;
@@ -226,6 +256,8 @@ namespace cash_register
         private System.Windows.Forms.TextBox tenderedAmount;
         private System.Windows.Forms.Label changeGiven;
         private System.Windows.Forms.Button createReceipt;
+        private System.Windows.Forms.Label recite;
+        private System.Windows.Forms.Button reset;
     }
 }
 
